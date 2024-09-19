@@ -1,0 +1,25 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Laudo Médico</title>
+</head>
+<body>
+    <h2>Laudo para a Imagem</h2>
+    <p>Tipo de Arquivo: {{ upload.file_type }}</p>
+    <p>Laudo: {{ upload.report }}</p>
+    <img src="{{ upload.file.url }}" alt="Imagem Médica">
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laudo da Imagem</title>
+</head>
+<body>
+    <h2>Laudo da Imagem</h2>
+    <p>{{ upload.report }}</p>  <!-- Exibe o laudo da imagem -->
+</body>
+</html>

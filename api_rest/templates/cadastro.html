@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <style>
+        /* Centralizar e ajustar a tela de cadastro */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #a4508b, #5f0a87);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            width: 90%;
+            overflow: hidden;
+        }
+
+        /* Seção esquerda: Título e imagem */
+        .left-section {
+            flex: 1;
+            background: linear-gradient(135deg, #5f0a87, #a4508b);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .left-section h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .left-section p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .left-section img {
+            max-width: 70%;  /* Limitar a largura da imagem */
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Seção direita: Formulário de Cadastro */
+        .right-section {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;  /* Ajustar o espaçamento entre os campos */
+        }
+
+        label {
+            text-align: left;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        input, select, button {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #5f0a87;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #a4508b;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .errorlist {
+            color: red;
+            font-size: 10px;
+            margin-top: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Seção esquerda: Título e imagem -->
+        <div class="left-section">
+            <h2>MAMO IA</h2>
+            <p></p>
+            <img src="{% static 'img/image01.png' %}" alt="Imagem Médica">
+        </div>
+
+        <!-- Seção direita: Formulário de Cadastro -->
+        <div class="right-section">
+            <h3>Cadastre-se</h3>
+            <form method="post">
+                {% csrf_token %}
+                
+                <!-- Primeiro, exibir os campos de informações pessoais -->
+               
+                <div class="form-group">
+                    {{ form.first_name.label_tag }} 
+                    {{ form.first_name }}
+                    {{ form.first_name.errors }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.last_name.label_tag }} 
+                    {{ form.last_name }}
+                    {{ form.last_name.errors }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.email.label_tag }} 
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                </div>
+                
+                <!-- Depois, exibir os campos de senha e confirmação -->
+                <div class="form-group">
+                    {{ form.password1.label_tag }} 
+                    {{ form.password1 }}
+                    {{ form.password1.errors }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.password2.label_tag }} 
+                    {{ form.password2 }}
+                    {{ form.password2.errors }}
+                </div>
+                
+                <!-- Por fim, o botão de cadastro e a pergunta sobre login -->
+                <button type="submit">Cadastrar</button>
+            </form>
+            
+            <p>Já tem uma conta? <a href="{% url 'home' %}">Faça login aqui</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Imagem Médica</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <style>
+        /* Estilos globais */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #a4508b, #5f0a87);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Seção esquerda: Título e imagem */
+        .left-section {
+            flex: 1;
+            background: linear-gradient(135deg, #5f0a87, #a4508b);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .left-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .left-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        .left-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Seção direita: Formulário de Upload */
+        .right-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #4a4a4a;
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="file"], select, button {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #5f0a87;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #a4508b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Seção esquerda: Título e imagem -->
+        <div class="left-section">
+            <h2>Insira a Imagem Médica</h2>
+            <img src="{% static 'img/image01.png' %}" alt="Imagem Médica">
+        </div>
+
+        <!-- Seção direita: Formulário de Upload -->
+        <div class="right-section">
+            <h3>Faça o upload</h3>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="file">Selecione o arquivo:</label>
+                    <input type="file" id="file" name="file">
+                </div>
+                <div class="form-group">
+                    <label for="file_type">Tipo de arquivo:</label>
+                    <select id="file_type" name="file_type">
+                        <option value="jpg">Mamografia</option>
+                        <option value="png">Ultrassom</option>
+                        <option value="pdf">Termografia</option>
+                    </select>
+                </div>
+                <button type="submit">Fazer Upload</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

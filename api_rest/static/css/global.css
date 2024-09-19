@@ -1,0 +1,110 @@
+/* Estilos globais */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #a4508b, #5f0a87); /* Gradiente de fundo */
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.welcome-section {
+    flex: 1;
+    background: linear-gradient(135deg, #5f0a87, #a4508b);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+.welcome-section .logo {
+    max-width: 100%; /* Não ultrapassa a largura do container */
+    max-height: 350px; /* Limite de altura para manter a proporção */
+    width: auto; /* Define a largura como automática para manter a proporção */
+    height: auto; /* Ajusta a altura proporcionalmente */
+    margin-bottom: 20px; /* Espaçamento abaixo da imagem */
+}
+
+.welcome-section h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.welcome-section p {
+    font-size: 24px;
+}
+
+.login-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.login-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5f0a87;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #a4508b;
+}
+
+.login-section p {
+    margin-top: 20px;
+}
+
+.login-section a {
+    color: #5f0a87;
+    text-decoration: none;
+}
+
+.login-section a:hover {
+    text-decoration: underline;
+}
